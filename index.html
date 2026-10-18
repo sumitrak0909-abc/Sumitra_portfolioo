@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumitra Kamble | Digital Marketing Manager & Performance Specialist</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F7F4EF;
+            --card-bg: #FFFFFF;
+            --text-main: #1A1A1A;
+            --text-muted: #555555;
+            --accent-color: #E05A47;
+            --accent-dark: #C24431;
+            --border-color: #E6E0D5;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-left: 2px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 30px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-btn {
+            background-color: var(--text-main);
+            color: #FFF !important;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            padding: 80px 8%;
+            gap: 50px;
+            min-height: 80vh;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #F0E6DD;
+            color: var(--accent-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #FFF;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+        }
+
+        .btn-secondary {
+            border: 1.5px solid var(--text-main);
+            color: var(--text-main);
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-main);
+            color: #FFF;
+        }
+
+        .hero-image-card {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-wrapper {
+            width: 300px;
+            height: 360px;
+            border-radius: 180px 180px 20px 20px;
+            overflow: hidden;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            background-color: #D1DCEB;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+            background: #FFFFFF;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-title .subtitle {
+            margin-top: 10px;
+            color: var(--text-muted);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .key-focus {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .key-focus div {
+            background: #FFFFFF;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-box {
+            background: #FFFFFF;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-box h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .card-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline / Experience */
+        .timeline {
+            border-left: 2px solid var(--border-color);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid var(--bg-color);
+        }
+
+        .timeline-item .year {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-top: 4px;
+        }
+
+        .timeline-item h4 {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .timeline-item li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* Campaigns Showcase Section */
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .campaign-card {
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .campaign-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .campaign-info {
+            padding: 20px;
+        }
+
+        .campaign-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .campaign-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-main);
+            color: #FFFFFF;
+            padding: 80px 8% 30px 8%;
+            text-align: center;
+        }
+
+        .footer-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-content p {
+            color: #AAAAAA;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 40px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333333;
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: #777777;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 50px 5%;
+                text-align: center;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .navbar nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Sumitra Kamble<span>+</span></div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#campaigns">Live Campaigns</a>
+            <a href="#contact" class="nav-btn">Let's Talk</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Digital Marketing Manager</span>
+            <h1>Bridging Data-Driven Performance & Consumer Acquisition.</h1>
+            <p>Empowering brands through high-converting Meta Ads, Google Ads optimization, robust lead generation strategies, and multi-channel analytics.</p>
+            <div class="hero-actions">
+                <a href="#campaigns" class="btn-primary">View Performance Proof</a>
+                <a href="#contact" class="btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-image-card">
+            <div class="image-wrapper">
+                <img src="assets/sumitra-profile.jpg" alt="Sumitra Kamble">
+            </div>
+            <div class="floating-badge">
+                <span>🎯 3+ Years Experience</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <div class="line"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I am a Digital Marketing Manager with hands-on expertise in Meta Ads, Google Ads, campaign optimization, lead generation, and web analytics.</p>
+                <p>With a strong foundation spanning over 3 years in sales—particularly across real estate and financial sectors—I specialize in customer acquisition, high-intent targeting, and driving measurable business growth.</p>
+                <div class="key-focus">
+                    <div>✓ Performance Marketing</div>
+                    <div>✓ Lead Generation Architecture</div>
+                    <div>✓ Conversion Rate Optimization</div>
+                    <div>✓ Analytics & Data Reporting</div>
+                </div>
+            </div>
+            <div class="about-highlights">
+                <div class="card-box">
+                    <h3>Languages</h3>
+                    <p>English, Hindi, Marathi</p>
+                </div>
+                <div class="card-box">
+                    <h3>Certifications</h3>
+                    <p>Google Ads Search Certificate (June 2026)<br>Google Analytics Certificate (June 2026)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience" class="experience">
+        <div class="section-title">
+            <h2>Professional Experience</h2>
+            <div class="line"></div>
+        </div>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <span class="year">2024 – Present</span>
+                <h3>Digital Marketing Manager</h3>
+                <h4>Universe Ads PVT LTD (Kalyan)</h4>
+                <ul>
+                    <li>Managed and optimized multi-platform social media channels (Facebook, Instagram, Twitter, YouTube) to maximize brand visibility and user engagement.</li>
+                    <li>Designed and scaled high-budget Meta Ads (Facebook & Instagram) focused on lead acquisition and direct sales conversions.</li>
+                    <li>Executed performance-driven Google Ads campaigns covering Search, Display, and YouTube formats.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="year">2022 – 2024</span>
+                <h3>Sales Manager</h3>
+                <h4>Silverstone Realty (Thane)</h4>
+                <ul>
+                    <li>Accelerated property sales through targeted digital campaigns and online real estate platforms.</li>
+                    <li>Led high-performing teams, managed vendor/client relations, and directed property market comparative analysis.</li>
+                    <li>Improved pipeline conversion rates through disciplined client follow-ups and strategic cold-calling frameworks.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="year">2021 – 2022</span>
+                <h3>Portfolio Sales Association</h3>
+                <h4>Investor Clinic (Thane & KDMC)</h4>
+                <ul>
+                    <li>Conducted market research and benchmark valuations against recently sold properties.</li>
+                    <li>Executed rigorous client profiling to match investment requirements with premium available property listings.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="year">2023 – 2024</span>
+                <h3>Sales Executive (Closing)</h3>
+                <h4>Eshan Developer (Panvelkar Greens, Badlapur)</h4>
+                <ul>
+                    <li>Spearheaded end-to-end deal closures within strict TAT constraints, handling comprehensive property orientations and high-stakes customer negotiations.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Live Meta Ads Performance Showcase -->
+    <section id="campaigns" class="campaigns">
+        <div class="section-title">
+            <h2>Live Ad Performance & Campaign Proof</h2>
+            <div class="line"></div>
+            <p class="subtitle">Verified Meta Ads manager snapshots demonstrating live optimization, custom audience targeting, and lead cost metrics.</p>
+        </div>
+
+        <div class="campaign-grid">
+            <div class="campaign-card">
+                <img src="assets/Service lead 3.png" alt="Meta Ads Active Lead Campaigns">
+                <div class="campaign-info">
+                    <h3>Lead Generation Campaign Suite</h3>
+                    <p>Active multi-ad setup delivering consistent messaging conversations with tracked cost metrics (Universe Ads India Account).</p>
+                </div>
+            </div>
+
+            <div class="campaign-card">
+                <img src="assets/Service lead 7.png" alt="Primary Text & Conversion Architecture">
+                <div class="campaign-info">
+                    <h3>High-Converting Ad Copy & Value Framing</h3>
+                    <p>Optimized primary text structure highlighting complete service stacks, WhatsApp credits, and clear calls-to-action.</p>
+                </div>
+            </div>
+
+            <div class="campaign-card">
+                <img src="assets/service lead 5.png" alt="Custom Audiences & A/B Testing">
+                <div class="campaign-info">
+                    <h3>Audience Segmenting & Lookalike Strategy</h3>
+                    <p>Targeted execution leveraging customer list lookalikes to maximize high-intent user response rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="skills">
+        <div class="section-title">
+            <h2>Technical Stack & Tools</h2>
+            <div class="line"></div>
+        </div>
+        <div class="skills-flex">
+            <span class="skill-tag">Google Ads</span>
+            <span class="skill-tag">Meta Ads Manager</span>
+            <span class="skill-tag">GA4 (Google Analytics)</span>
+            <span class="skill-tag">Google Tag Manager</span>
+            <span class="skill-tag">SEMrush</span>
+            <span class="skill-tag">Google Keyword Planner</span>
+            <span class="skill-tag">ChatGPT & Google Gemini AI</span>
+            <span class="skill-tag">Canva AI & Runway</span>
+            <span class="skill-tag">Microsoft Excel & Sheets</span>
+            <span class="skill-tag">Performance Marketing</span>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Ready to Elevate Your Digital Performance?</h2>
+            <p>Let’s connect to discuss scaling your customer acquisition funnel.</p>
+            <div class="contact-links">
+                <a href="mailto:sumitrak1001@gmail.com">sumitrak1001@gmail.com</a>
+                <a href="tel:+918097844208">+91 8097844208</a>
+                <a href="https://www.linkedin.com/in/sumitra-kamble-7379631a0" target="_blank">LinkedIn Profile</a>
+            </div>
+            <p class="location">Location: Kalyan (W), Maharashtra, India</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sumitra Kamble. Crafted for excellence.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
